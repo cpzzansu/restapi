@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'PartialSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* 전체 폰트 */
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: rgb(236, 236, 236);
+}
+.login-body{
+    background-color: white;
+}
+/* nav 센터 아이콘 div */
+.center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* nav 아이콘 */
+.nav-icon{
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 10px;
+}
+/* nav 아이콘 마우스 hover */
+.nav-icon:hover{
+    background-color: rgb(229, 229, 229);
+}
+/* profile 양식 */
+.nv-profile{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.main-content{
+    width: 600px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 0;
+}
+.main-profile{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.main-user-id{
+    margin-top: 13px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.main-upload-time{
+    font-size: 12px;
+    color: rgb(165, 165, 165);
+    margin-left: 10px;
+}
+.profile-bar{
+    height: 67px;
+}
+.main-content-text{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.main-content-img{
+    margin-top: 20px;
+    width: 600px;
+    height: auto;
+}
+.main-reply{
+    margin-top: 20px;
+    height: 40px;
+    margin-right: 11px;
+}
+.main-content-footer{
+    border-top: 1px solid rgb(221, 221, 221);
+    padding: 15px;
+}
+.main-content-footer-items{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 800;
+    color: rgb(113, 113, 113);
+}
+.main-content-like-icon{
+   margin-right: 5px;
+}
+.padding-t-b-100{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-color: #f0f2f5;
+}
+.logo-box{
+    width: 500px;
+    margin: 50px;
+    align-items: center;
+}
+.logo-content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo-content-font{
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    width: 500px;
+}
+.login-box{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 4px 11px 0px rgba(0, 0, 0, 0.3);
+}
+.login-input{
+    width: 370px;
+    height: 50px;
+    padding: 14px 16px;
+    font-size: 20px;
+}
+.btn-box {
+    padding-top: 10px;
+}
+#login-form{
+    margin-top: 3px;
+}
+#loginBtn{
+    height: 55px;
+    background-color: #1877f2;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+}
+.footer-box{
+    height: 140px;
+    padding: 20px;
+}
+.bottom-border{
+    align-items: center;
+    border-bottom: 1px solid #dadde1;
+    display: flex;
+    padding: 20px 16px;
+    text-align: center;
+}
+#addBtn{
+    font-weight: normal;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    background-color: #42b72a;
+    border: 0px;
+}
+.footer-box{
+    margin-top: 20px;
+}
+.input-col-6{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* content-input */
+.content-input-button{
+    width: 500px;
+    height: 40px;
+    background: #ECECEC;
+    border-radius: 29px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+.content-input-profile{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.content-input-bar {
+    height: 67px;
+
+}
+.content-input-placeholder{
+    margin-left: 15px;
+    color: rgb(150, 150, 150);
+    
+}
+
+
