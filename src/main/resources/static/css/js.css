@@ -213,5 +213,46 @@ body{
     color: rgb(150, 150, 150);
     
 }
-
-
+.upload-box{
+    width: 600px;
+    height: 192px;
+    background: #F2F2F2;
+    border-radius: 10px;
+    border: 2.5px #ADC9FF dashed;
+}
+.mbJpegPng{
+    text-align: center;
+    color: #ACACAC;
+    font-size: 12px;
+    word-wrap: break-word;   
+    display: flex;
+    justify-content: center;
+}
+.image-select{
+    width: 139px;
+    height: 40px;
+    background: #D9D9D9;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.image-select-font{
+    text-align: center;
+    color: #959CA9;
+    font-size: 12px;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+.image-box{
+    height: 100px;
+    padding-right: 15px;
+}
+[contenteditable="true"]:focus {
+    outline: none;
+}
+[contenteditable="true"]:empty::before {
+    content: "무슨 생각을 하고 있나요?";
+    color: grey;
+}
+.custom-size {
+    max-width: 632px;
+}
