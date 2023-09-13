@@ -148,7 +148,11 @@
           </div>
           <div class="modal-body">
             <div>
-              <p contenteditable="true" onclick="clearDefaultText(this)"></p>
+              <p
+                contenteditable="true"
+                onclick="clearDefaultText(this)"
+                id="boardContent"
+              ></p>
             </div>
             <div class="upload-box" id="uploadBox">
               <div
@@ -180,7 +184,9 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">등록하기</button>
+            <button type="button" class="btn btn-primary" id="boardAddBtn">
+              등록하기
+            </button>
           </div>
         </div>
       </div>
@@ -206,6 +212,7 @@
       }
       let uploadBox = document.getElementById("uploadBox");
       let imageFile = document.getElementById("imageFile");
+      const boardAddBtn = document.getElementById("boardAddBtn");
 
       // 드래그 이벤트를 방지
       function preventDefaults(e) {
@@ -241,31 +248,78 @@
         function (e) {
           e.preventDefault();
 
-          var files = e.dataTransfer.files;
+          let files = e.dataTransfer.files;
+          imageFile.files = files;
 
-          if (files.length > 0) {
-            var file = files[0];
-            if (file.type.startsWith("image/")) {
-              // 파일이 이미지 형식인지 확인
-              var reader = new FileReader();
-
-              reader.onload = function (e) {
-                var img = new Image();
-                img.src = e.target.result;
-                img.style.width = "100%"; // 박스 너비에 맞게 이미지 크기 조정
-
-                uploadBox.innerHTML = ""; // 이전 이미지나 내용 제거
-                uploadBox.style.height = "100%";
-                uploadBox.style.border = "0px";
-                uploadBox.appendChild(img);
-              };
-
-              reader.readAsDataURL(file); // 파일을 Data URL로 읽기
-            }
-          }
+          imageFileRead(files);
         },
         false
       );
+
+      imageFile.addEventListener("change", function () {
+        console.log(imageFile.files.length);
+
+        if (imageFile.files.length > 0) {
+          // 파일이 선택되었는지 확인
+          console.log(imageFile.files.length);
+          let files = imageFile.files;
+          console.log(files);
+          imageFileRead(files);
+        }
+      });
+
+      // 파일을 선택하거나 드래그 앤 드롭하면 해당 파일의 그림을 보여줌
+      function imageFileRead(files) {
+        console.log(files.length);
+        if (files.length > 0) {
+          let file = files[0];
+          if (file.type.startsWith("image/")) {
+            // 파일이 이미지 형식인지 확인
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+              let img = new Image();
+              img.src = e.target.result;
+              img.style.width = "100%"; // 박스 너비에 맞게 이미지 크기 조정
+
+              uploadBox.innerHTML = ""; // 이전 이미지나 내용 제거
+              uploadBox.style.height = "100%";
+              uploadBox.style.border = "0px";
+              uploadBox.appendChild(img);
+            };
+
+            reader.readAsDataURL(file); // 파일을 Data URL로 읽기
+          }
+        }
+      }
+
+      boardAddBtn.addEventListener("click", function () {
+        const $boardContent = document.getElementById("boardContent");
+        // 게시판 본문 내용
+        let boardContent = $boardContent.innerText;
+        // 게시판 이미지 파일
+        let files = imageFile.files;
+        // 서버로 보낼 데이터 객체로 만들기
+        const data = {
+          boardContent: boardContent,
+          files: files,
+        };
+
+        fetch("/board", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("There was an error fetching the data:", error);
+          });
+      });
     </script>
   </body>
 </html>
