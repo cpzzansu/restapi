@@ -3,6 +3,7 @@ package com.boardapi.restapi.service;
 import java.util.Iterator;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
@@ -21,28 +22,21 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @Service
 public class BoardService {
-    
-    
 
-    public void addBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
-        
+
+    public void addBoard(String boardContent, List<MultipartFile> files) throws Exception {
+
+
         //boardMapper.addBoard(board);
-        if (ObjectUtils.isEmpty(multipartHttpServletRequest) == false) {
-            Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-            String name;
-            while (iterator.hasNext()) {
-                name = iterator.next();
-                log.debug("file tag name : " + name);
-                List<MultipartFile> list = multipartHttpServletRequest.getFiles(name);
-                for (MultipartFile multipartFile : list) {
-                    log.debug("start file informaiton");
-                    log.debug("file name : " + multipartFile.getOriginalFilename());
-                    log.debug("file size : " + multipartFile.getSize());
-                    log.debug("file content type : " + multipartFile.getContentType());
-                    log.debug("end file information.\n");
-                }
+        if(files != null && !files.isEmpty()){
+            for(MultipartFile file : files){
+                System.out.println("hi");
+                log.info("start file informaiton");
+                log.info("file name : " + file.getOriginalFilename());
+                log.info("file size : " + file.getSize());
+                log.info("file content type : " + file.getContentType());
+                log.info("end file information.\n");
             }
         }
-
     }
 }

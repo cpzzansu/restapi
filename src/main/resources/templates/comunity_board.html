@@ -294,23 +294,24 @@
       }
 
       boardAddBtn.addEventListener("click", function () {
-        const $boardContent = document.getElementById("boardContent");
+        const $boardContent = document.getElementById('boardContent');
         // 게시판 본문 내용
         let boardContent = $boardContent.innerText;
         // 게시판 이미지 파일
         let files = imageFile.files;
-        // 서버로 보낼 데이터 객체로 만들기
-        const data = {
-          boardContent: boardContent,
-          files: files,
-        };
+
+        // FormData 객체 생성
+        let formData = new FormData();
+        formData.append("boardContent", boardContent);
+
+        // 이미지 파일 추가 (만약 여러 파일이 있을 경우 아래와 같이 반복문을 사용)
+        for (let i = 0; i < files.length; i++) {
+          formData.append("files", files[i]);
+        }
 
         fetch("/board", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+          body: formData,
         })
           .then((response) => response.json())
           .then((data) => {
