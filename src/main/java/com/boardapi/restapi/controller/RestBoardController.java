@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestBoardController {
 
   @PostMapping("/board")
-  public ResponseEntity<String> addBoard(Board board) {
+  public ResponseEntity<String> addBoard(Board board) throws Exception {
     Board newBoard;
-    return new ResponseEntity<>("newBoard, HttpStatus.CREATED");
+    return ResponseEntity.ok("파일업로드를 하였습니다.: ");
   }
 }
