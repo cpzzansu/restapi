@@ -1,20 +1,12 @@
 package com.boardapi.restapi.service;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.slf4j.Logger;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.boardapi.restapi.dto.Board;
-
-import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 
 @Transactional
